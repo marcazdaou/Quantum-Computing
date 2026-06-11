@@ -1,52 +1,42 @@
-# Quantum Computing
+﻿# Quantum Computing
 
-Quantum computing assignments implemented in **Python** using **Qiskit** and Jupyter Notebooks — covering quantum mechanics fundamentals, gate-based computation, and quantum algorithms.
+Quantum computing implementations and experiments in **Python** using **Qiskit** and Jupyter Notebooks — covering quantum mechanics fundamentals, gate-based computation, and quantum algorithms.
 
-## Assignments
+## Notebooks
 
-| # | Topics |
+| Notebook | Topic |
 |---|---|
-| HW 1 | Qubits, quantum states, Dirac (bra-ket) notation, measurement |
-| HW 2 | Single-qubit gates: Pauli-X, Hadamard, Z, S, T; Bloch sphere |
-| HW 3 | Multi-qubit systems, tensor products, CNOT gate |
-| HW 4 | Quantum entanglement, Bell states, no-cloning theorem |
-| HW 5 | Quantum circuits, Born rule, probability amplitudes |
-| HW 6 | Grover's search algorithm — quadratic speedup: O(√N) |
-| HW 7 | Quantum Fourier Transform (QFT) |
-| HW 8 | Quantum phase estimation |
-| HW 9 | Introduction to Shor's factoring algorithm |
+| [01_math_foundations_and_setup.ipynb](01_math_foundations_and_setup.ipynb) | Linear algebra for QC, complex numbers, Dirac notation, environment setup |
+| [02_quantum_states_and_bloch_sphere.ipynb](02_quantum_states_and_bloch_sphere.ipynb) | Qubit representation, state vectors, Bloch sphere visualization |
+| [03_quantum_gates_and_superposition.ipynb](03_quantum_gates_and_superposition.ipynb) | Pauli-X/Y/Z, Hadamard, S/T gates, rotation gates, superposition states |
+| [04_multi_qubit_systems_and_tensor_products.ipynb](04_multi_qubit_systems_and_tensor_products.ipynb) | Tensor products, CNOT, multi-qubit state space |
+| [05_bell_states_and_entanglement.ipynb](05_bell_states_and_entanglement.ipynb) | All four Bell states, quantum entanglement, no-cloning theorem |
+| [06_measurement_born_rule_and_interference.ipynb](06_measurement_born_rule_and_interference.ipynb) | Born rule, state collapse, constructive/destructive interference |
+| [07_quantum_teleportation_and_superdense_coding.ipynb](07_quantum_teleportation_and_superdense_coding.ipynb) | Quantum teleportation protocol, superdense coding, Bell measurement |
+| [08_qkd_oracles_and_deutsch_jozsa.ipynb](08_qkd_oracles_and_deutsch_jozsa.ipynb) | BB84 quantum key distribution, phase oracles, Deutsch-Jozsa algorithm |
+| [09_grovers_search_algorithm.ipynb](09_grovers_search_algorithm.ipynb) | Grover oracle construction, amplitude amplification, O(√N) search |
 
-## Key Concepts
+## Key Algorithms
 
-### Superposition
-A qubit exists in a linear combination of basis states until measured:
+### Grover's Search — O(√N)
+Quadratic speedup for unstructured search. Classical brute-force requires O(N); Grover's finds the target in O(√N) with near-certain probability.
 ```
-|ψ⟩ = α|0⟩ + β|1⟩    where |α|² + |β|² = 1
-```
-
-### Entanglement
-Bell state — two qubits correlated regardless of distance:
-```
-|Φ⁺⟩ = (1/√2)(|00⟩ + |11⟩)
+Prepare uniform superposition → Apply oracle (mark target) → Apply diffusion operator → Repeat √N times → Measure
 ```
 
-### Grover's Algorithm
-Unstructured database search in **O(√N)** vs classical O(N):
-```
-Apply Hadamard → Oracle (mark target) → Diffusion (amplify marked state) → Measure
-Repeat O(√N) times for near-certain success probability
-```
+### Deutsch-Jozsa Algorithm
+Determines whether a function is constant or balanced in a **single** quantum query vs O(2^(n-1)+1) classically.
 
-### Quantum Fourier Transform
-Quantum analogue of the DFT in **O(n²)** vs classical FFT O(n·2ⁿ):
-```
-|j⟩ → (1/√N) Σ e^(2πijk/N) |k⟩
-```
+### Quantum Teleportation
+Transmits an unknown qubit state using one entangled Bell pair and two classical bits — no quantum channel required after initial entanglement.
+
+### BB84 Quantum Key Distribution
+First quantum cryptography protocol. Encodes bits in qubit basis choices; any eavesdropping introduces detectable errors.
 
 ## Technologies
 
 - **Python 3**
-- **Qiskit** — IBM's quantum computing framework
+- **Qiskit** — IBM's open-source quantum computing framework
 - **Jupyter Notebook**
 - NumPy, Matplotlib
 
@@ -55,9 +45,8 @@ Quantum analogue of the DFT in **O(n²)** vs classical FFT O(n·2ⁿ):
 ```bash
 pip install qiskit jupyter numpy matplotlib
 jupyter notebook
-# Open hw1.ipynb → hw9.ipynb in order
 ```
 
-## Why Quantum Computing Matters
+## Why This Matters
 
-Classical computers solve factoring in exponential time — the foundation of RSA security. Shor's algorithm (HW 9) solves it in **polynomial time** on a quantum computer, demonstrating why quantum computing will reshape cryptography and optimization.
+Classical RSA security relies on the hardness of integer factorization. Shor's algorithm solves it in polynomial time on a quantum computer — making quantum computing one of the most consequential areas of modern computer science.

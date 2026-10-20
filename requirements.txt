@@ -1,0 +1,11 @@
+# Pinned so the notebooks and tests give the same results everywhere (Python 3.11+)
+qiskit==2.6.0
+qiskit-aer==0.18.0
+numpy==2.5.4
+matplotlib==3.11.2
+pylatexenc==2.11
+# Running notebooks and tests
+ipykernel==7.4.0
+nbclient==0.11.0
+nbformat==5.11.1
+pytest==9.1.1

@@ -67,11 +67,3 @@ algorithms.py           Reusable circuits: Bell states, teleportation, Deutsch-J
 tests/                  Physics tests and the notebook runner
 requirements.txt        Pinned versions (Qiskit 2.6, Aer 0.18)
 ```
-
-## Notes
-
-- Notebooks 01–09 were course assignments. For this repository I re-ran them on Qiskit 2.6 and removed the
-  assignment scaffolding. I also completed the unfinished problems in notebook 07 (superdense decoding, the
-  debugging exercises, two-hop teleportation and entanglement swapping) and corrected the entanglement argument
-  in notebook 04.
-- Notebooks 10–11, `algorithms.py` and the tests were added after the course.
